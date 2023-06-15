@@ -79,6 +79,6 @@ pnpm test
 ## Libraries
 This project uses:
 
-- NextJs
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - @cosmjs packages
 - crypto-js
