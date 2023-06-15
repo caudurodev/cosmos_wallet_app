@@ -82,3 +82,9 @@ This project uses:
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - @cosmjs packages
 - crypto-js
+
+
+## Issues not addressed
+
+Error message `Prop className did not match` in console due to bug in nextjs as described here:
+https://github.com/vercel/next.js/issues/46605 
