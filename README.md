@@ -60,6 +60,11 @@ pnpm dev
 
 ## Running Tests
 
+Playwright E2E test library
+
+npx playwright install        
+npx playwright test --ui
+
 Using npm
 
 ```
@@ -82,6 +87,7 @@ This project uses:
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - @cosmjs packages
 - crypto-js
+- State Management with Zustand
 
 
 ## Issues not addressed
