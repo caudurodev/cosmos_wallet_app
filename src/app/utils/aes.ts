@@ -1,18 +1,3 @@
-export const toBase64 = (buffer: ArrayBuffer): string => {
-    const binary = String.fromCharCode.apply(null, new Uint8Array(buffer));
-    return window.btoa(binary);
-}
-
-export const fromBase64 = (base64String: string): ArrayBuffer => {
-    const binaryString = window.atob(base64String);
-    const len = binaryString.length;
-    const bytes = new Uint8Array(len);
-    for (let i = 0; i < len; i++) {
-        bytes[i] = binaryString.charCodeAt(i);
-    }
-    return bytes.buffer;
-}
-
 export const deriveKey = async (password: string, salt: Uint8Array) => {
     const passwordBuffer = new TextEncoder().encode(password);
     const keyMaterial = await window.crypto.subtle.importKey(

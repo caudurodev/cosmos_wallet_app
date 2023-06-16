@@ -12,6 +12,7 @@ Not implemented in this repo:
 - changing password
 - Does not store password or email from user in local storage to avoid even greater security issues
 - Creating account for chains that are not the main cosmos chain
+- Does not connect to mainnet to check wallet balance / send crypto (mainnet blocks CORs so would need to use a third-party provider or custom rpc endpoint)
 
 ## Features
 

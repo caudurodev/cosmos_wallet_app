@@ -1,5 +1,6 @@
 import { fromUtf8, toUtf8 } from "@cosmjs/encoding";
-import { aesEncrypt, aesDecrypt, toBase64, fromBase64, deriveKey } from "./aes";
+import { aesEncrypt, aesDecrypt, deriveKey } from "./aes";
+import { toBase64, fromBase64 } from '@/app/utils/base64';
 
 export async function encrypt(password: string, data: string): Promise<string> {
     const salt = crypto.getRandomValues(new Uint8Array(16));
@@ -17,10 +18,11 @@ export async function encrypt(password: string, data: string): Promise<string> {
 
 export const decrypt = async (password: string, encryptedData: string) => {
     const { salt, iv, content } = JSON.parse(encryptedData);
-    const decodedSalt = fromBase64(salt);
-    const decodedIv = fromBase64(iv);
-    const decodedContent = fromBase64(content);
+    const decodedSalt = new Uint8Array(fromBase64(salt));
+    const decodedIv = new Uint8Array(fromBase64(iv));
+    const decodedContent = new Uint8Array(fromBase64(content));
     const key = await deriveKey(password, decodedSalt);
     const decryptedContent = await aesDecrypt(key, decodedIv, decodedContent);
     return fromUtf8(decryptedContent);
 };
+

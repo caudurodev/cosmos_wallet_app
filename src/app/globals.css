@@ -40,10 +40,10 @@ label {
 }
 
 .tab {
-  @apply inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300;
+  @apply inline-block p-4 rounded-t-lg bg-gray-300 dark:bg-gray-500  dark:text-gray-900 hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300;
 }
 .tab.active {
-  @apply text-blue-600 bg-gray-400 dark:bg-gray-500 dark:text-white;
+  @apply text-blue-600 bg-gray-400 dark:bg-gray-300 dark:text-blue-500 text-blue-200;
 }
 
 .action-btn {

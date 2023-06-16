@@ -13,7 +13,6 @@ export const Create = ({ onCreate, onSetEmail, onSetPassword }: CreateProps) => 
 
     const onSubmit = (data: FormData, event?: React.BaseSyntheticEvent) => {
         event?.preventDefault()
-        console.log('submit:', data)
         onCreate()
     }
 

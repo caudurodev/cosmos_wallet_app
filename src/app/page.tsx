@@ -38,6 +38,7 @@ export default function Home() {
         /> :
         <Account
           email={email}
+          password={password}
           onGetMnemonic={getMnemonic}
           onLogout={doLogOut}
           decryptedMnemonic={decryptedMnemonic}

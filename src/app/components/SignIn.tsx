@@ -13,7 +13,6 @@ export const SignIn = ({ onLogin, onSetEmail, onSetPassword }: SignInProps) => {
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
     const onSubmit = (data: FormData, event?: React.BaseSyntheticEvent) => {
         event?.preventDefault()
-        console.log('submit:', data)
         onLogin()
     }
     return (

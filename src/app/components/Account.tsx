@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useAuth } from '@/app/hooks/useAuth'
-import { Account as CosmosAccount } from '@cosmjs/stargate';
+import { SigningStargateClient, makeCosmoshubPath } from "@cosmjs/stargate";
+
+
 
 type AccountProps = {
     onLogout: () => void
@@ -9,18 +11,19 @@ type AccountProps = {
     password: string
     decryptedMnemonic: string
 }
-export const Account = ({ email, password, onLogout, decryptedMnemonic }: AccountProps) => {
+export const Account = (
+    { email, password, onLogout, decryptedMnemonic }: AccountProps
+) => {
     const [showMnemonic, setShowMnemonic] = useState(false)
     const [address, setAddress] = useState('');
     const { getWallet } = useAuth({ email, password })
+
     useEffect(() => {
         const getWalletData = async () => {
             const wallet = await getWallet(decryptedMnemonic)
             if (!wallet) return
             const accounts = await wallet.getAccounts()
-            // console.log({ accounts })
             if (accounts.length > 0) {
-                // Assuming there is only one account
                 const account = accounts[0];
                 setAddress(account.address)
             }
@@ -31,7 +34,9 @@ export const Account = ({ email, password, onLogout, decryptedMnemonic }: Accoun
     return (
         <div className="text-left">
             <div className="flex flex-col">
-                <h3 data-testid="user-greeting">Hi {email} you are now logged in</h3>
+                <h3 data-testid="user-greeting">
+                    Hi {email} you are now logged in.
+                </h3>
                 <button
                     className="action-btn my-4 inline"
                     onClick={onLogout}
@@ -58,10 +63,9 @@ export const Account = ({ email, password, onLogout, decryptedMnemonic }: Accoun
                 <textarea
                     data-testid="user-mnemonic"
                     readOnly
+                    defaultValue={decryptedMnemonic}
                     className="text-xl my-4 w-[270px] min-h-[200px]"
-                >
-                    {decryptedMnemonic}
-                </textarea>
+                />
             }
         </div>
     )
