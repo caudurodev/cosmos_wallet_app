@@ -11,13 +11,11 @@ type SignInProps = {
 }
 export const SignIn = ({ onLogin, onSetEmail, onSetPassword }: SignInProps) => {
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
-
     const onSubmit = (data: FormData, event?: React.BaseSyntheticEvent) => {
         event?.preventDefault()
         console.log('submit:', data)
         onLogin()
     }
-
     return (
         <form className="p-6" data-testid="signin" onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-6">

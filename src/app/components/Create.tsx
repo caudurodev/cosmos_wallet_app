@@ -1,4 +1,4 @@
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm } from "react-hook-form"
 type FormData = {
     email: string
     password: string

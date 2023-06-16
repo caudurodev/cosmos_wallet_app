@@ -7,6 +7,10 @@
 ## Description
 Using `@cosmjs/stargate` this repo aims to allow users to create a blockchain address, store it locally and be able to retrieve it locally. This project does not send credentials to external servers.
 
+Not implemented
+- clearing localstorage cache
+- changing password
+
 ## Features
 
 Within the Cosmos ecosystem:
@@ -60,10 +64,15 @@ pnpm dev
 
 ## Running Tests
 
-Playwright E2E test library
+Playwright E2E test library - make sure to install the test browsers - we currently only test with Firefox, but this can be changed by editing `playwright.config.ts`
 
-npx playwright install        
+```
+npx playwright install
+```
+
+```
 npx playwright test --ui
+```
 
 Using npm
 

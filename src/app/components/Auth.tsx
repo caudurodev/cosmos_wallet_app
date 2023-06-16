@@ -9,12 +9,14 @@ type AuthProps = {
     onLogin: () => void
     onSetEmail: (email: string) => void
     onSetPassword: (password: string) => void
+    setDecryptedMnemonic: (decryptedMnemonic: string) => void
 }
 export const Auth = ({
     onSetEmail,
     onSetPassword,
     onLogin,
     onCreate,
+    setDecryptedMnemonic
 }: AuthProps) => {
     const tabs = [
         {
@@ -23,13 +25,13 @@ export const Auth = ({
             id: 'signin'
         },
         {
-            label: 'Create',
+            label: 'Create Account',
             component: <Create onCreate={onCreate} onSetEmail={onSetEmail} onSetPassword={onSetPassword} />,
             id: 'create'
         },
         {
-            label: 'Recover',
-            component: <Recover />,
+            label: 'Recover Account',
+            component: <Recover setDecryptedMnemonic={setDecryptedMnemonic} />,
             id: 'recover'
         },
     ]
@@ -50,7 +52,7 @@ export const Auth = ({
                     </li>
                 )
                 }
-            </ul >
+            </ul>
             {activeTab}
         </>
     )
