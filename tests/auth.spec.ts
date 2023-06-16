@@ -31,12 +31,16 @@ test('Optimistic Flow', async ({ page }) => {
   await expect(page.locator('.toaster-success-class')).toContainText('Account Created Successfully')
 
   // should now show logged-in page
-  await expect(page.getByTestId('user-greeting')).toContainText(email)
+  await expect(page.getByTestId('user-greeting')).toContainText('you are now logged in')
 
   // click to shows mnemonic
   await page.getByTestId('user-toggle-mnemonic-btn').click()
   await expect(page.getByTestId('user-mnemonic')).not.toBeEmpty()
   const mnemonic = await (page.getByTestId('user-mnemonic').textContent())
+  expect(mnemonic).not.toBeNull()
+
+  const address = await (page.getByTestId('user-address').inputValue())
+  expect(address).not.toBeNull()
 
   // logout
   await page.getByTestId('user-logout-btn').click()
@@ -66,6 +70,20 @@ test('Optimistic Flow', async ({ page }) => {
   await page.getByTestId('user-toggle-mnemonic-btn').click()
 
   await expect(await page.getByTestId('user-mnemonic').textContent()).toEqual(mnemonic)
+
+
+  // recover account from mnemonic
+  await page.getByTestId('user-logout-btn').click()
+  await page.getByTestId('tab-btn-recover').click()
+  await expect(page.getByTestId('tab-btn-recover')).toHaveClass('tab active')
+
+  await page.getByTestId('recover-mnemonic-input').fill(mnemonic ?? '')
+  await page.getByTestId('recover-submit-btn').click()
+
+
+
+  await expect(await (page.getByTestId('user-address').inputValue())).toEqual(address)
+
 });
 
 

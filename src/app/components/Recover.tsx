@@ -16,9 +16,9 @@ export const Recover = ({ setDecryptedMnemonic }: RecoverProps) => {
     return (
         <form className="p-6" data-testid="signin" onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-6">
-                <label htmlFor="email">Your Mnemonic</label>
+                <label htmlFor="mnemonic">Your Mnemonic</label>
                 <textarea
-                    data-testid="signin-email-input"
+                    data-testid="recover-mnemonic-input"
                     {...register("mnemonic", { required: true })}
                     id="mnemonic"
                     placeholder="..."
@@ -29,7 +29,7 @@ export const Recover = ({ setDecryptedMnemonic }: RecoverProps) => {
                 </span>
             </div>
             <button
-                data-testid="signin-submit-btn"
+                data-testid="recover-submit-btn"
                 type="submit"
                 className="action-btn"
             >

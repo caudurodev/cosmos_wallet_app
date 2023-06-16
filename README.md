@@ -7,9 +7,11 @@
 ## Description
 Using `@cosmjs/stargate` this repo aims to allow users to create a blockchain address, store it locally and be able to retrieve it locally. This project does not send credentials to external servers.
 
-Not implemented
+Not implemented in this repo:
 - clearing localstorage cache
 - changing password
+- Does not store password or email from user in local storage to avoid even greater security issues
+- Creating account for chains that are not the main cosmos chain
 
 ## Features
 
@@ -97,9 +99,10 @@ This project uses:
 - @cosmjs packages
 - crypto-js
 - State Management with Zustand
+- React Hook Form
 
 
-## Issues not addressed
+## Not part of this Repo
 
-Error message `Prop className did not match` in console due to bug in nextjs as described here:
-https://github.com/vercel/next.js/issues/46605 
+
+- Error message `Prop className did not match` in console due to bug in nextjs as described here: https://github.com/vercel/next.js/issues/46605 
