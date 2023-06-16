@@ -7,6 +7,11 @@
 ## Description
 Using `@cosmjs/stargate` this repo aims to allow users to create a blockchain account/address, store it locally in the browser and be able to recover the account with the unencrypted mmnemonic. This project does not send credentials to external servers or actually communicates with the blockchain.
 
+
+
+![image](https://github.com/caudurodev/cosmos_wallet_app/assets/60057887/e1c2fcd2-0bcf-443f-8b7f-77cb85ef1032)
+![image](https://github.com/caudurodev/cosmos_wallet_app/assets/60057887/5f415b4b-5561-4b04-a09b-641b1bd7838e)
+
 Not implemented in this repo:
 - clearing localstorage cache
 - changing password
