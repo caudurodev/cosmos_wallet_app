@@ -2,10 +2,10 @@
 
 **! Warning !**
 
-*this project is not to be used in production as it is vulnerable to leaking mnemonic and private keys. For testing purposes only*
+*this project is not to be used in production as it is vulnerable to leaking mnemonic and private keys. For testing and proof of concept purposes only*
 
 ## Description
-Using `@cosmjs/stargate` this repo aims to allow users to create a blockchain address, store it locally and be able to retrieve it locally. This project does not send credentials to external servers.
+Using `@cosmjs/stargate` this repo aims to allow users to create a blockchain account/address, store it locally in the browser and be able to recover the account with the unencrypted mmnemonic. This project does not send credentials to external servers or actually communicates with the blockchain.
 
 Not implemented in this repo:
 - clearing localstorage cache
@@ -19,15 +19,15 @@ Within the Cosmos ecosystem:
 
 #### Account Creation
 
-- Users register with email and password which generates a valid mnemonic 
+- Users register with email and password which generates a valid address with mnemonic 
 - Enables users to generate a new mnemonic with the correct email password combination
-- Credentials and keys stored encrypted locally in the browser
+- Encrypted mnemonic stored encrypted locally in the browser
+- Encryption keys are stored in memory only and do not persist across sessions
 
 #### Sign-In
 
-- With email and password, which decrypts the private keys 
-- Recover the account using the account mnemonic or email + password combination.
-
+- With email and password, which decrypts the account if it is stored locally
+- Recover the account using the account mnemonic
 
 ## Installation
 Using npm
@@ -100,9 +100,9 @@ This project uses:
 - crypto-js
 - State Management with Zustand
 - React Hook Form
+- TailwindCSS for styling
+- Playwright for E2E testing
 
 
-## Not part of this Repo
-
-
+## Known issues
 - Error message `Prop className did not match` in console due to bug in nextjs as described here: https://github.com/vercel/next.js/issues/46605 
